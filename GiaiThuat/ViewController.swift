@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var checkView: UIView!
+    @IBOutlet weak var cccceee: UIView!
     var a = [1,4,5,3,6,9,7,2,8,10]
     var isSort: Bool = true
     var countSort: Int = 0
@@ -51,6 +53,22 @@ class ViewController: UIViewController {
         detectValueSideisEvent(arInt: [1,2,3,4,5,6])
         countNumber2Ar(arInt1: [0,1,5], arInt2: [3,4])
         countAppearArAToArB(arInt1: [1,2,3], arInt2: [1,4,1,1,1])
+        checkNumberIs0(arInt: [1,2,3,4,5,0])
+        
+        cccceee.backgroundColor = .red
+        let rect = cccceee.bounds
+            let ratio = min(rect.height / 200, 1)
+            if ratio < 0.5 {
+                cccceee.layer.mask = nil
+            } else {
+                let v = 16 * ratio
+                let benzier = UIBezierPath(roundedRect: rect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: v, height: v))
+                let shape = CAShapeLayer()
+                shape.frame = rect
+                shape.fillColor = UIColor.blue.cgColor
+                shape.path = benzier.cgPath
+                cccceee.layer.mask = shape
+            }
     }
     
     func sortLess() {
@@ -448,7 +466,20 @@ class ViewController: UIViewController {
         print(arCount)
         // 1 + 4n * 2m
     }
-    
+    func checkNumberIs0(arInt: [Int]) {
+//        Kiểm tra mảng có giá trị 0 hay không? Có trả về 1, không có trả về 0
+        var is0: Bool = false
+        for i in 0...arInt.count - 1 {
+            if arInt[i] == 0 {
+                is0 = true
+            }
+        }
+        if is0 {
+            print("Có số 0")
+        } else {
+            print("Không có số 0")
+        }
+    }
 }
 class Job {
     var person: Person?
