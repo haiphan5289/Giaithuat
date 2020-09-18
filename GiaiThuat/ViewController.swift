@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         countNumber2Ar(arInt1: [0,1,5], arInt2: [3,4])
         countAppearArAToArB(arInt1: [1,2,3], arInt2: [1,4,1,1,1])
         checkNumberIs0(arInt: [1,2,3,4,5,0])
+        sortEvent(arInt: [1,2,5,4,3])
         
         cccceee.backgroundColor = .red
         let rect = cccceee.bounds
@@ -480,6 +481,32 @@ class ViewController: UIViewController {
             print("Không có số 0")
         }
     }
+    func sortEvent(arInt: [Int]) {
+//        Sắp xếp lẻ tăng dần nhưng giá trị khác giữ nguyên vị trí
+        var b = arInt
+        for i in 0...b.count - 1 {
+            if b[i] % 2 != 0 {
+                if i == b.count - 1 {
+                    
+                } else {
+                    for j in i + 1...b.count - 1 {
+                        if b[j] % 2 != 0 {
+                            if b[j] < b[i] {
+                                b[i] = b[i] + b[j]
+                                b[j] = b[i] - b[j]
+                                b[i] = b[i] - b[j]
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+//        print(b)
+//        let h: checkStatic = checkStatic()
+//        h.aa
+//        let c = checkStatic.bbb
+    }
 }
 class Job {
     var person: Person?
@@ -494,4 +521,15 @@ struct CountNumber {
     let number: Int
     let count: Int
 }
+class checkStatic {
+    var aa: String = "aaa"
+//    class var bbb: String = "cccc"
+    class var averageAge: Double {
+        return 30
+    }
+}
+//class njnjnj: checkStatic {
+//    override static var bbb: String = "ssss"
+//}
+
 
