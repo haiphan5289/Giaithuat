@@ -55,6 +55,7 @@ class ViewController: UIViewController {
         countAppearArAToArB(arInt1: [1,2,3], arInt2: [1,4,1,1,1])
         checkNumberIs0(arInt: [1,2,3,4,5,0])
         sortEvent(arInt: [1,2,5,4,3])
+        sapxepsoduongtangdansoamgiunguyenvitri(arInt: [10,5,-2,3,2,-1,4,-5,6,9,1])
         
         cccceee.backgroundColor = .red
         let rect = cccceee.bounds
@@ -502,11 +503,40 @@ class ViewController: UIViewController {
 
             }
         }
+        // 1 + 2n * 5m
 //        print(b)
 //        let h: checkStatic = checkStatic()
 //        h.aa
 //        let c = checkStatic.bbb
     }
+    //Sắp xếp số dương tăng dần, các số âm giữ nguyên vị trí
+    func sapxepsoduongtangdansoamgiunguyenvitri(arInt: [Int]) {
+        var b = arInt
+        for i in 0...b.count - 1 {
+            if i == b.count - 1 {
+                
+            } else {
+                if b[i] > 0 {
+                    for j in i + 1...b.count - 1 {
+                        if b[j] > 0 {
+                            if b[i] > b[j] {
+                                print(" trước ---- \(b)")
+                                print("\(i) ----- \(j)")
+                                print("\(b[i]) ----- \(b[j])")
+                                b[i] = b[i] + b[j]
+                                b[j] = b[i] - b[j]
+                                b[i] = b[i] - b[j]
+                                print(" sau ---- \(b)")
+                                print("***********************")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        print("\(b)")
+    }
+    
 }
 class Job {
     var person: Person?
