@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         checkNumberIs0(arInt: [1,2,3,4,5,0])
         sortEvent(arInt: [1,2,5,4,3])
         sapxepsoduongtangdansoamgiunguyenvitri(arInt: [10,5,-2,3,2,-1,4,-5,6,9,1])
+        sapxepchanletangdannhungvitrituongdoigiuacacsokhongthaydoi(arInt: [8,9,4,5,6,3,10,2,7,1])
         
         cccceee.backgroundColor = .red
         let rect = cccceee.bounds
@@ -535,6 +536,40 @@ class ViewController: UIViewController {
             }
         }
         print("\(b)")
+    }
+//    Sắp xếp chẵn, lẻ tăng dần nhưng vị trí tương đối giữa các số không thay đổi
+    func sapxepchanletangdannhungvitrituongdoigiuacacsokhongthaydoi(arInt: [Int]) {
+        var l = arInt
+        for i in 0...l.count - 1 {
+            if i == l.count - 1 {
+                
+            } else {
+                if l[i] % 2 == 0 {
+                    for j in i + 1...l.count - 1 {
+                        if l[j] % 2 == 0 {
+                            if l[i] > l[j] {
+                                l[i] = l[i] + l[j]
+                                l[j] = l[i] - l[j]
+                                l[i] = l[i] - l[j]
+                            }
+                        }
+                    }
+                } else {
+                    for j in i + 1...l.count - 1 {
+                        if l[j] % 2 != 0 {
+                            if l[i] > l[j] {
+                                l[i] = l[i] + l[j]
+                                l[j] = l[i] - l[j]
+                                l[i] = l[i] - l[j]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // 1 + (4n * 5m ) + (4n * 5m)
+        print("Sắp xếp chẵn, lẻ tăng dần nhưng vị trí tương đối giữa các số không thay đổi")
+        print("\(l)")
     }
     
 }
