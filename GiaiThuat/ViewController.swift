@@ -57,6 +57,7 @@ class ViewController: UIViewController {
         sortEvent(arInt: [1,2,5,4,3])
         sapxepsoduongtangdansoamgiunguyenvitri(arInt: [10,5,-2,3,2,-1,4,-5,6,9,1])
         sapxepchanletangdannhungvitrituongdoigiuacacsokhongthaydoi(arInt: [8,9,4,5,6,3,10,2,7,1])
+        checkListWith5Element()
         
         cccceee.backgroundColor = .red
         let rect = cccceee.bounds
@@ -570,6 +571,32 @@ class ViewController: UIViewController {
         // 1 + (4n * 5m ) + (4n * 5m)
         print("Sắp xếp chẵn, lẻ tăng dần nhưng vị trí tương đối giữa các số không thay đổi")
         print("\(l)")
+    }
+    
+    //Đề bài cho một Mảng gồm các phần tữ int bất kỳ. Không được phép xắp xếp hoặc chép lại rồi xắp xếp, làm sao để biết là mãng đó có 5 phần tử đó có liền kề nhau hay không ?
+    func checkListWith5Element() {
+        let l: [Int] = [2,3,3,5,4,6,7,8,9]
+        guard l.count >= 5 else {
+            return
+        }
+        for i in l {
+            var count: Int = 0
+            for j in i...i + 4 {
+                print("======\(j)")
+                for z in l {
+                    if z == j {
+                        count += 1
+                        print("\(z)")
+                        break
+                    }
+                }
+            }
+            if count >= 5 {
+                print("Mảng có 5 phần từ liền kề nhau")
+            }
+            count = 0
+        }
+        
     }
     
 }
